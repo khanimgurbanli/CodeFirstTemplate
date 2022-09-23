@@ -21,7 +21,7 @@ namespace WebStar_.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var products = await _db.Products.ToListAsync();
+            var products = await _db.Products.Include(i=>i.ProductImages).ToListAsync();
             return View(products);
             #region List
             //va product = new List<Product>
